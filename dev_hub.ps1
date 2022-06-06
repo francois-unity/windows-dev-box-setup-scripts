@@ -1,6 +1,9 @@
 # Description: Boxstarter Script
 # Author: Microsoft
-# Common settings for web development with NodeJS
+# Common settings for hub development
+
+# Open this url from edge to start the installation:
+# https://boxstarter.org/launch/Boxstarter.WebLaunch.application?noreboot=1&package=https://raw.githubusercontent.com/francois-unity/windows-dev-box-setup-scripts/master/dev_hub.ps1
 
 Disable-UAC
 
@@ -28,7 +31,7 @@ executeScript "RemoveDefaultApps.ps1";
 executeScript "CommonDevTools.ps1";
 
 #--- Tools ---
-$Packages = 'microsoft-windows-terminal', 'oh-my-posh', 'nvm', 'nodejs-lts', 'python2'
+$Packages = 'microsoft-windows-terminal', 'nvm', 'nodejs-lts', 'python2'
 ForEach ($PackageName in $Packages)
 {
     choco install $PackageName -y
@@ -37,4 +40,4 @@ ForEach ($PackageName in $Packages)
 Enable-UAC
 Enable-MicrosoftUpdate
 
-Read-Host -Prompt "Press Enter to exit"
+Read-Host -Prompt "Installation done, launch windows terminal as administrator and run the second install script (dev_hub-env.ps1). Press Enter to exit"
